@@ -1,0 +1,20 @@
+[user]
+{% if user.name is defined %}
+	name = {{ user.name }}
+{% endif %}
+	email = {{ user.email }}
+
+{% if user.push is defined %}
+[push]
+{% for key, value in user.push.items() %}
+	{{ key }} = {{ value }}
+{% endfor %}
+{% endif %}
+
+
+{% if user.aliases is defined %}
+[alias]
+{% for key, value in user.aliases.items() %}
+	{{ key }} = {{ value }}
+{% endfor %}
+{% endif %}

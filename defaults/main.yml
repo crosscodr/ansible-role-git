@@ -20,3 +20,12 @@ git_install_from_source_force_update: false
 
 # Leave this at it's default.
 git_reinstall_from_source: false
+
+# deploy userspecific global gitconfig
+git_configure: false
+# git_global_config:
+#   - username: jdoe
+#     name: Jane jdoe
+#     email: jdoe@example.com
+#     aliases:
+#       - s: status

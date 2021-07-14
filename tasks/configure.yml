@@ -1,0 +1,21 @@
+---
+- name: check users exits
+  become: true
+  getent:
+    database: passwd
+    key: "{{ user }}"
+  loop: "{{ git_global_config | map (attribute='username') | list }}"
+  loop_control:
+    loop_var: user
+
+
+- name: deploy userspecific .gitconfig
+  template:
+    src: gitconfig.j2
+    dest: "/home/{{ user.username }}/.gitconfig"
+    owner: "{{ user.username }}"
+    group: "{{ user.username }}"
+    mode: '640'
+  loop: "{{ git_global_config }}"
+  loop_control:
+    loop_var: user
