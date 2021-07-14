@@ -16,6 +16,6 @@
     owner: "{{ user.username }}"
     group: "{{ user.username }}"
     mode: '640'
-  loop: "{{ git_global_config }}"
+  loop: "{{ git_global_config | default([]) }}"
   loop_control:
     loop_var: user

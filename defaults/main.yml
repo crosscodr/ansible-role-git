@@ -25,7 +25,9 @@ git_reinstall_from_source: false
 git_configure: false
 # git_global_config:
 #   - username: jdoe
-#     name: Jane jdoe
-#     email: jdoe@example.com
-#     aliases:
-#       - s: status
+#     config:
+#        user:
+#         name: Jane jdoe
+#         email: jdoe@example.com
+#       alias:
+#         s: status
