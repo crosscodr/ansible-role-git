@@ -8,8 +8,8 @@
   loop_control:
     loop_var: user
 
-
 - name: deploy userspecific .gitconfig
+  become: true
   template:
     src: gitconfig.j2
     dest: "/home/{{ user.username }}/.gitconfig"

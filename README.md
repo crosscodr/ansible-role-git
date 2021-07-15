@@ -33,7 +33,24 @@ Whether to install Git from source; if set to `true`, `git_version` is required 
 
     git_install_from_source_force_update: false
 
-If git is already installed at and older version, force a new source build. Only applies if `git_install_from_source` is `true`.
+If git is already installed at an older version, force a new source build. Only applies if `git_install_from_source` is `true`.
+
+### Configuration
+Use `git_global_config` to enable git configuration on a users basis. There must be one list entry for each user.
+Username is mandatory.
+
+    git_global_config:
+      - username: jan
+        config:
+          user:
+            name: <name>
+            email: <email>
+          alias:
+            tree: 'log --decorate --pretty=oneline --abbrev-commit --graph'
+            co: 'checkout'
+            s: 'status'
+            sw: 'switch'
+
 
 ## Dependencies
 

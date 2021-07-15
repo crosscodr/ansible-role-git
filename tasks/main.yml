@@ -24,4 +24,4 @@
   when: git_install_from_source | bool
 
 - import_tasks: configure.yml
-  when: git_configure | bool
+  when: git_global_config is defined

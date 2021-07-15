@@ -22,7 +22,6 @@ git_install_from_source_force_update: false
 git_reinstall_from_source: false
 
 # deploy userspecific global gitconfig
-git_configure: false
 # git_global_config:
 #   - username: jdoe
 #     config:
