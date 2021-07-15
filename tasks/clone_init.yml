@@ -1,0 +1,27 @@
+---
+- name : deploy git-clone-init
+  become: true
+  template:
+    src: git-clone-init.j2
+    dest: "/home/{{ user.username }}/.git-clone-init"
+    owner: "{{ user.username }}"
+    group: "{{ user.username }}"
+    mode: '640'
+
+- name: ensure git templatedir exits
+  become: true
+  file:
+    path: "{{ user.config.init.templatedir }}/hooks/"
+    state: directory
+    owner: "{{ user.username }}"
+    group: "{{ user.username }}"
+    mode: '750'
+
+- name: deploy post-checkout hook
+  become: true
+  copy:
+    src: git-templates/hooks/post-checkout
+    dest: "{{ user.config.init.templatedir }}/hooks/"
+    owner: "{{ user.username }}"
+    group: "{{ user.username }}"
+    mode: '640'

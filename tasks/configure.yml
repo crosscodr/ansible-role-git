@@ -19,3 +19,12 @@
   loop: "{{ git_global_config | default([]) }}"
   loop_control:
     loop_var: user
+
+- name: configure git-clone-init
+  include_tasks: clone_init.yml
+  loop: "{{ git_global_config | default([]) }}"
+  loop_control:
+    loop_var: user
+  when:
+    - user.clone_init_domains is defined
+    - user.config.init.templatedir is defined

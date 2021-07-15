@@ -1,0 +1,11 @@
+#!/bin/bash
+case "$url" in
+{% for domain in user.clone_init_domains %}
+    *@{{ domain.name }}:* ) email="{{ domain.email }}"
+                     name="{{ domain.username }}"
+                     ;;
+    *//{{ domain.name }}/* ) email="{{ domain.email }}"
+                     name="{{ domain.username }}"
+                     ;;
+{% endfor %}
+esac

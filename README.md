@@ -51,6 +51,16 @@ Username is mandatory.
             s: 'status'
             sw: 'switch'
 
+#### Set alternative `user` and `email` for different domains
+With the help of templates and the post-checkout hook, git can automatically set a local user and email for each repository which is cloned.
+Under `git_global_config`, one can configure a list of domains with corresponding username and email. This settings will be applied to the repo's local config after cloning it.
+
+    clone_init_domains:
+      - name: github.com
+        username: <username>
+        email: 40234802+<username>@users.noreply.github.com
+
+For this to work, `templatedir` in the gitconfig section `init` must also be set.
 
 ## Dependencies
 
